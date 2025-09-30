@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATHLON - Pro Game Recording with Just Your Phone</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #EF4444; /* Red 500 */
+            --secondary-color: #1F2937; /* Gray 800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background for professional feel */
+            color: #E5E7EB;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            transition: all 0.2s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #DC2626; /* Slightly darker red */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.4), 0 2px 4px -2px rgba(239, 68, 68, 0.4);
+        }
+        .card-bg {
+            background-color: #1F2937;
+        }
+        .feature-icon {
+            color: var(--primary-color);
+        }
+        /* Simple scroll-to-top button - removed as not strictly needed for this fast page */
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold tracking-tight text-white flex items-center">
+                <span class="text-red-500">ATHLON</span>
+            </a>
+            <button onclick="document.getElementById('trial-section').scrollIntoView({ behavior: 'smooth' });" class="hidden sm:inline-block px-5 py-2 text-sm font-semibold rounded-lg btn-primary text-white shadow-md">
+                Claim Free Trial
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. HERO SECTION: Direct Approach & Core Value -->
+        <section id="hero" class="pt-16 pb-24 lg:pt-24 lg:pb-32 bg-gray-900 text-center relative overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Large, attention-grabbing headline addressing the pain point and solution -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
+                    Stop Missing the Shot. <span class="text-red-500">Record Games Like a Pro</span> with Just Your Phone.
+                </h1>
+                <!-- Focused Sub-headline on ICP & Differentiation -->
+                <p class="mt-4 text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto">
+                    AI-powered video analysis and effortless sharing for budget-restricted <span class="font-semibold text-red-300">youth, women, and semi-pro teams.</span>
+                </p>
+                
+                <!-- Main CTA - Direct Conversion Focus -->
+                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });" class="px-10 py-4 text-lg font-bold rounded-xl btn-primary text-white shadow-xl">
+                        View Packages & Start Trial
+                    </button>
+                    <a href="#differentiation" class="px-10 py-4 text-lg font-bold rounded-xl bg-gray-700 text-white hover:bg-gray-600 transition duration-300 shadow-xl flex items-center justify-center">
+                        See How We Beat Expensive Cameras
+                    </a>
+                </div>
+            </div>
+            <!-- Mockup Illustration of a phone recording a game  -->
+        </section>
+
+        <!-- 2. PAIN POINTS & BENEFITS SECTION -->
+        <section id="benefits" class="py-20 bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-12">
+                    Your Team Needs Game Video. Your Budget Doesn't.
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Pain Point 1: Recording -->
+                    <div class="p-6 rounded-xl card-bg shadow-2xl border-t-4 border-red-500 transform hover:scale-[1.02] transition duration-300">
+                        <p class="text-red-500 text-4xl mb-4">📸</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Capture Every Moment</h3>
+                        <p class="text-gray-400">Stop relying on a parent holding a shaky phone or spending huge money on Veo/Pixellot. Get consistent, high-quality, auto-tracked footage every game.</p>
+                    </div>
+                    <!-- Pain Point 2: Analysis -->
+                    <div class="p-6 rounded-xl card-bg shadow-2xl border-t-4 border-red-500 transform hover:scale-[1.02] transition duration-300">
+                        <p class="text-red-500 text-4xl mb-4">🧠</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Analyze and Improve</h3>
+                        <p class="text-gray-400">Want to Go Pro or get noticed by College Scouts? Our AI gives you the video evidence and analysis tools to correct mistakes and build a standout portfolio.</p>
+                    </div>
+                    <!-- Pain Point 3: Sharing -->
+                    <div class="p-6 rounded-xl card-bg shadow-2xl border-t-4 border-red-500 transform hover:scale-[1.02] transition duration-300">
+                        <p class="text-red-500 text-4xl mb-4">👨‍👩‍👧‍👦</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Share and Relive</h3>
+                        <p class="text-gray-400">Instantly share highlights with friends and family. Show off talent, relive memories, and strengthen team bonds through shared footage.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. COMPETITIVE DIFFERENTIATION / HOW IT WORKS -->
+        <section id="differentiation" class="py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-16">
+                    The ATHLON Difference: No Gear. Zero Upfront Cost.
+                </h2>
+                
+                <!-- 3-Step Process -->
+                <div class="grid md:grid-cols-3 gap-12 text-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="feature-icon text-5xl font-extrabold mb-4 border-4 border-red-500 rounded-full w-20 h-20 flex items-center justify-center bg-gray-800">1</div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Setup: Place Your Phone</h3>
+                        <p class="text-gray-400 max-w-xs">Use any standard phone (Android or iOS) in a simple stand. Tap 'Record'. Done.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="feature-icon text-5xl font-extrabold mb-4 border-4 border-red-500 rounded-full w-20 h-20 flex items-center justify-center bg-gray-800">2</div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Processing: AI Takes Over</h3>
+                        <p class="text-gray-400 max-w-xs">Upload the raw footage. Our AI automatically stitches, tracks players, and edits the video, following the action perfectly.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="feature-icon text-5xl font-extrabold mb-4 border-4 border-red-500 rounded-full w-20 h-20 flex items-center justify-center bg-gray-800">3</div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Delivery: Analyze & Share</h3>
+                        <p class="text-gray-400 max-w-xs">Access your professionally tracked match recording within 24 hours. Clip, analyze, and share your plays.</p>
+                    </div>
+                </div>
+
+                <!-- Price Comparison (The Competitive Edge) -->
+                <div class="mt-20 max-w-4xl mx-auto p-8 rounded-xl bg-red-900/30 border border-red-500 shadow-2xl">
+                    <h3 class="text-2xl font-bold text-center text-white mb-6">Traditional Cameras vs. ATHLON</h3>
+                    <div class="flex justify-between items-center text-xl font-semibold border-b border-gray-600 pb-3 mb-3">
+                        <span class="w-1/3">Feature</span>
+                        <span class="w-1/3 text-center">Veo/Trace (Alternatives)</span>
+                        <span class="w-1/3 text-center text-red-400">ATHLON (Mobile App)</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="w-1/3">Upfront Hardware Cost</span>
+                        <span class="w-1/3 text-center font-bold text-red-500">$1,500 - $3,000+</span>
+                        <span class="w-1/3 text-center font-bold text-green-400">FREE (Use Your Phone)</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="w-1/3">Deployment Speed</span>
+                        <span class="w-1/3 text-center">Weeks (Shipping, Setup)</span>
+                        <span class="w-1/3 text-center font-bold text-green-400">Minutes (App Download)</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="w-1/3">Monthly Subscription</span>
+                        <span class="w-1/3 text-center">$40 - $150+</span>
+                        <span class="w-1/3 text-center font-bold text-green-400">Affordable Packages ($20-25/mo avg)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- NEW: PRICING SECTION - Added the tiers here -->
+        <section id="pricing" class="py-20 bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-white mb-12">
+                    Simple Pricing. Maximum Video Hours.
+                </h2>
+                <p class="text-center text-lg text-gray-400 mb-10">
+                    Get started with a FREE 2-Week Trial, then choose the package that fits your team's needs.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Starter Package -->
+                    <div class="p-8 rounded-2xl card-bg shadow-2xl border border-gray-700 hover:border-red-500 transition duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Starter</h3>
+                        <p class="text-5xl font-extrabold text-white mb-4">3,500 <span class="text-xl font-semibold text-gray-400">EGP/mo</span></p>
+                        <p class="text-gray-400 mb-6">Best for small, focused teams or monthly projects.</p>
+                        <ul class="space-y-3 text-left text-gray-300">
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> 20 Recording Hours/mo</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> For up to 2 Teams</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Interactive & Follow Cam Player</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Clipping & Downloads</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> VoD & Sharing</li>
+                        </ul>
+                        <button onclick="document.getElementById('package-select').value='Starter'; document.getElementById('trial-form').scrollIntoView({ behavior: 'smooth' });" class="mt-8 w-full px-6 py-3 font-bold rounded-xl bg-red-600 text-white hover:bg-red-700 transition duration-300">
+                            Select Starter
+                        </button>
+                    </div>
+
+                    <!-- Performance Package (Recommended) -->
+                    <div class="p-8 rounded-2xl card-bg shadow-2xl border-4 border-red-500 ring-2 ring-red-500 scale-[1.03]">
+                        <div class="text-sm font-bold text-center text-white bg-red-500 rounded-full px-3 py-1 mb-4 inline-block">MOST POPULAR</div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Performance</h3>
+                        <p class="text-5xl font-extrabold text-white mb-4">6,300 <span class="text-xl font-semibold text-gray-400">EGP/mo</span></p>
+                        <p class="text-gray-400 mb-6">Ideal for clubs and multiple teams needing frequent recording.</p>
+                        <ul class="space-y-3 text-left text-gray-300">
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> 60 Recording Hours/mo</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Unlimited Teams & Sports</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> All Starter Features Included</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Dedicated Customer Support</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Better 6 & 12 Month Discounts</li>
+                        </ul>
+                        <button onclick="document.getElementById('package-select').value='Performance'; document.getElementById('trial-form').scrollIntoView({ behavior: 'smooth' });" class="mt-8 w-full px-6 py-3 font-bold rounded-xl btn-primary text-white shadow-xl">
+                            Select Performance
+                        </button>
+                    </div>
+
+                    <!-- Elite Package -->
+                    <div class="p-8 rounded-2xl card-bg shadow-2xl border border-gray-700 hover:border-red-500 transition duration-300">
+                        <h3 class="text-2xl font-bold text-white mb-2">Elite</h3>
+                        <p class="text-5xl font-extrabold text-white mb-4">8,575 <span class="text-xl font-semibold text-gray-400">EGP/mo</span></p>
+                        <p class="text-gray-400 mb-6">For large academies or institutions needing maximum coverage.</p>
+                        <ul class="space-y-3 text-left text-gray-300">
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> 120 Recording Hours/mo</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Unlimited Teams & Sports</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> All Performance Features Included</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Dedicated Onboarding Workshops</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-3">✓</span> Highest Discount for Annual Plan</li>
+                        </ul>
+                        <button onclick="document.getElementById('package-select').value='Elite'; document.getElementById('trial-form').scrollIntoView({ behavior: 'smooth' });" class="mt-8 w-full px-6 py-3 font-bold rounded-xl bg-red-600 text-white hover:bg-red-700 transition duration-300">
+                            Select Elite
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="text-center text-sm text-gray-500 mt-10">
+                    *All packages include the FREE 2-Week Trial. Pricing shown is for monthly subscription before long-term discounts. Hardware stand/mount sold separately (1,500 EGP).
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. SOCIAL PROOF / MOTIVATION -->
+        <section id="proof" class="py-20 bg-gray-900">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-10">
+                    What Athletes Are Saying
+                </h2>
+                
+                <blockquote class="p-8 card-bg rounded-xl shadow-2xl border-l-8 border-red-500">
+                    <p class="text-xl italic text-gray-300">
+                        "Before ATHLON, we had to rely on a coach with a shaky camera. Now, we just set up one phone, and 24 hours later, we have a professional, tracked video. It's affordable, and it's helping us build clips to share with college recruiters. Simple and consistent delivery."
+                    </p>
+                    <footer class="mt-6 text-right">
+                        <cite class="text-lg font-semibold text-white block">Coach Tarek, Youth Basketball Team (Cairo)</cite>
+                        <cite class="text-sm text-gray-400">ATHLON Pilot Team</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- 5. FINAL CTA & FREE TRIAL FORM -->
+        <section id="trial-section" class="py-24 bg-gray-800">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" id="trial-form">
+                <h2 class="text-4xl font-extrabold text-white mb-4">
+                    Ready to Start Your Free Trial?
+                </h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    Choose a package below to secure your **risk-free 2-week trial** and get professional video proof of your team's talent.
+                </p>
+
+                <div class="card-bg p-8 sm:p-10 rounded-2xl shadow-2xl border border-red-500">
+                    <form id="contact-form">
+                        <div class="space-y-4">
+                            <!-- NEW: Package Selection Field -->
+                            <div>
+                                <select id="package-select" name="package" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                    <option value="" disabled selected>Select Your Preferred Package (Trial is Free)</option>
+                                    <option value="Starter">Starter (20 hours/mo)</option>
+                                    <option value="Performance">Performance (60 hours/mo) - Recommended</option>
+                                    <option value="Elite">Elite (120 hours/mo)</option>
+                                    <option value="Unsure">Unsure, Contact Me</option>
+                                </select>
+                            </div>
+                            <!-- Existing Fields -->
+                            <div>
+                                <input type="text" id="teamName" name="teamName" placeholder="Team Name (e.g., Al Ahly Youth Basketball)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                            </div>
+                            <div>
+                                <input type="text" id="contactName" name="contactName" placeholder="Your Name/Coach Name" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                            </div>
+                            <div>
+                                <input type="email" id="email" name="email" placeholder="Contact Email" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                            </div>
+                            <div>
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number (WhatsApp preferred)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                            </div>
+                            <button type="submit" class="w-full px-6 py-4 text-xl font-bold rounded-xl btn-primary text-white mt-4 shadow-2xl">
+                                Secure My Free 2-Week Trial
+                            </button>
+                        </div>
+                    </form>
+                    <p id="form-message" class="mt-4 text-green-400 font-semibold hidden"></p>
+                </div>
+                <p class="mt-6 text-sm text-gray-500">By submitting, you agree to a quick demo and setup call. No credit card required for the trial.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2024 ATHLON. Sports Tech for Everyone. Cairo, Egypt.</p>
+            <p class="mt-2">Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for form handling (MVP for Hackathon) -->
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedPackage = document.getElementById('package-select').value;
+            const teamName = document.getElementById('teamName').value;
+            const contactName = document.getElementById('contactName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const messageEl = document.getElementById('form-message');
+
+            // 1. Log all required data including the package selection (for hackathon capture)
+            console.log('--- FREE TRIAL REQUEST (PRIORITY LEAD) ---');
+            console.log(`Package Choice: ${selectedPackage}`);
+            console.log(`Team: ${teamName}`);
+            console.log(`Contact: ${contactName}`);
+            console.log(`Email: ${email}`);
+            console.log(`Phone (WhatsApp): ${phone}`);
+            console.log('------------------------------------------');
+            
+            // 2. Automated WhatsApp Welcome Message (Fastest external service setup)
+            // ACTION REQUIRED by you: Replace this placeholder with a real form submission service.
+            // FASTEST SOLUTION: Use a form hook service like Formsubmit.co, SheetDB, or Zapier/Make to capture this console log data and route it.
+            // The "fastest automation" method is to set the form's action attribute to a webhook URL, but since this is local, we'll give the instruction:
+            
+            const whatsappLink = `https://wa.me/${phone.replace(/[^0-9+]/g, '')}?text=Hi%20${contactName},%20we%20received%20your%20ATHLON%20trial%20request%20for%20the%20${selectedPackage}%20package.%20Let's%20get%20your%202-week%20trial%20scheduled!%20Reply%20YES%20to%20confirm%20our%20demo%20call.`;
+            
+            // 3. Display success message with a direct WhatsApp link for immediate action
+            this.reset(); // Clear the form
+            
+            messageEl.innerHTML = `Success! Thank you, ${contactName}. <br> We've captured your request for the **${selectedPackage}** package. <br><br> <a href="${whatsappLink}" target="_blank" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-bold inline-block mt-3 shadow-md">Click to Send Automated WhatsApp Welcome Message Now!</a>`;
+            
+            messageEl.classList.remove('hidden');
+            messageEl.classList.remove('text-green-400');
+            messageEl.classList.add('text-white'); // Use white for better contrast with the green link inside
+
+            // Do not hide the message as it contains the important WhatsApp link.
+        });
+
+    </script>
+</body>
+</html>
