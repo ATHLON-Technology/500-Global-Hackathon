@@ -33,7 +33,6 @@
         .feature-icon {
             color: var(--primary-color);
         }
-        /* Simple scroll-to-top button - removed as not strictly needed for this fast page */
     </style>
 </head>
 <body>
@@ -262,8 +261,13 @@
                 </p>
 
                 <div class="card-bg p-8 sm:p-10 rounded-2xl shadow-2xl border border-red-500">
-                    <form id="contact-form">
+                    <!-- --- MODIFIED FORM FOR EXTERNAL SUBMISSION --- -->
+                    <form id="contact-form" action="https://formsubmit.co/athlontechnology@gmail.com" method="POST">
                         <div class="space-y-4">
+                            <!-- Hidden field to redirect back to the page after submission (optional but helpful) -->
+                            <input type="hidden" name="_next" value="https://yourdeployedurl.github.io/thank-you">
+                            <input type="hidden" name="_subject" value="NEW ATHLON LEAD: Free Trial Request">
+
                             <!-- NEW: Package Selection Field -->
                             <div>
                                 <select id="package-select" name="package" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
@@ -276,23 +280,23 @@
                             </div>
                             <!-- Existing Fields -->
                             <div>
-                                <input type="text" id="teamName" name="teamName" placeholder="Team Name (e.g., Al Ahly Youth Basketball)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                <input type="text" id="teamName" name="TeamName" placeholder="Team Name (e.g., Al Ahly Youth Basketball)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
                             <div>
-                                <input type="text" id="contactName" name="contactName" placeholder="Your Name/Coach Name" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                <input type="text" id="contactName" name="ContactName" placeholder="Your Name/Coach Name" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
                             <div>
-                                <input type="email" id="email" name="email" placeholder="Contact Email" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                <input type="email" id="email" name="Email" placeholder="Contact Email" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
                             <div>
-                                <input type="tel" id="phone" name="phone" placeholder="Phone Number (WhatsApp preferred)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                <input type="tel" id="phone" name="Phone (WhatsApp)" placeholder="Phone Number (WhatsApp preferred)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
                             <button type="submit" class="w-full px-6 py-4 text-xl font-bold rounded-xl btn-primary text-white mt-4 shadow-2xl">
                                 Secure My Free 2-Week Trial
                             </button>
                         </div>
                     </form>
-                    <p id="form-message" class="mt-4 text-green-400 font-semibold hidden"></p>
+                    <!-- --- Message element removed as form submits externally --- -->
                 </div>
                 <p class="mt-6 text-sm text-gray-500">By submitting, you agree to a quick demo and setup call. No credit card required for the trial.</p>
             </div>
@@ -307,47 +311,21 @@
         </div>
     </footer>
 
-    <!-- JavaScript for form handling (MVP for Hackathon) -->
+    <!-- JavaScript for package selection scroll - REMOVED SUBMISSION HANDLER -->
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const selectedPackage = document.getElementById('package-select').value;
-            const teamName = document.getElementById('teamName').value;
-            const contactName = document.getElementById('contactName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            
-            const messageEl = document.getElementById('form-message');
-
-            // 1. Log all required data including the package selection (for hackathon capture)
-            console.log('--- FREE TRIAL REQUEST (PRIORITY LEAD) ---');
-            console.log(`Package Choice: ${selectedPackage}`);
-            console.log(`Team: ${teamName}`);
-            console.log(`Contact: ${contactName}`);
-            console.log(`Email: ${email}`);
-            console.log(`Phone (WhatsApp): ${phone}`);
-            console.log('------------------------------------------');
-            
-            // 2. Automated WhatsApp Welcome Message (Fastest external service setup)
-            // ACTION REQUIRED by you: Replace this placeholder with a real form submission service.
-            // FASTEST SOLUTION: Use a form hook service like Formsubmit.co, SheetDB, or Zapier/Make to capture this console log data and route it.
-            // The "fastest automation" method is to set the form's action attribute to a webhook URL, but since this is local, we'll give the instruction:
-            
-            const whatsappLink = `https://wa.me/${phone.replace(/[^0-9+]/g, '')}?text=Hi%20${contactName},%20we%20received%20your%20ATHLON%20trial%20request%20for%20the%20${selectedPackage}%20package.%20Let's%20get%20your%202-week%20trial%20scheduled!%20Reply%20YES%20to%20confirm%20our%20demo%20call.`;
-            
-            // 3. Display success message with a direct WhatsApp link for immediate action
-            this.reset(); // Clear the form
-            
-            messageEl.innerHTML = `Success! Thank you, ${contactName}. <br> We've captured your request for the **${selectedPackage}** package. <br><br> <a href="${whatsappLink}" target="_blank" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-bold inline-block mt-3 shadow-md">Click to Send Automated WhatsApp Welcome Message Now!</a>`;
-            
-            messageEl.classList.remove('hidden');
-            messageEl.classList.remove('text-green-400');
-            messageEl.classList.add('text-white'); // Use white for better contrast with the green link inside
-
-            // Do not hide the message as it contains the important WhatsApp link.
+        // No submit listener, letting the form POST externally.
+        // Keeping a simplified scroll function just in case
+        function scrollToElement(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // This sets the selected package in the form's dropdown when the user clicks a pricing button
+        document.querySelectorAll('[onclick*="document.getElementById(\'package-select\')"]').forEach(button => {
+            button.addEventListener('click', () => {
+                const packageValue = button.getAttribute('onclick').match(/'(Starter|Performance|Elite)'/)[1];
+                document.getElementById('package-select').value = packageValue;
+            });
         });
-
     </script>
 </body>
 </html>
