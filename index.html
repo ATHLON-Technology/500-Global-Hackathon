@@ -257,17 +257,13 @@
                     Ready to Start Your Free Trial?
                 </h2>
                 <p class="text-xl text-gray-400 mb-8">
-                    Choose a package below to secure your **risk-free 2-week trial** and get professional video proof of your team's talent.
+                    Choose a package and click below to **instantly open a WhatsApp chat** with our team!
                 </p>
 
                 <div class="card-bg p-8 sm:p-10 rounded-2xl shadow-2xl border border-red-500">
-                    <!-- --- MODIFIED FORM FOR EXTERNAL SUBMISSION --- -->
-                    <form id="contact-form" action="https://formsubmit.co/athlontechnology@gmail.com" method="POST">
+                    <!-- FORM: NOW HANDLED BY JAVASCRIPT TO OPEN WHATSAPP -->
+                    <form id="contact-form">
                         <div class="space-y-4">
-                            <!-- Hidden field to redirect back to the page after submission (optional but helpful) -->
-                            <input type="hidden" name="_next" value="https://yourdeployedurl.github.io/thank-you">
-                            <input type="hidden" name="_subject" value="NEW ATHLON LEAD: Free Trial Request">
-
                             <!-- NEW: Package Selection Field -->
                             <div>
                                 <select id="package-select" name="package" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
@@ -289,16 +285,20 @@
                                 <input type="email" id="email" name="Email" placeholder="Contact Email" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
                             <div>
-                                <input type="tel" id="phone" name="Phone (WhatsApp)" placeholder="Phone Number (WhatsApp preferred)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
+                                <input type="tel" id="phone" name="Phone (WhatsApp)" placeholder="Your Direct Phone Number (For our records)" required class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white placeholder-gray-400 focus:ring-red-500 focus:border-red-500 border-transparent">
                             </div>
-                            <button type="submit" class="w-full px-6 py-4 text-xl font-bold rounded-xl btn-primary text-white mt-4 shadow-2xl">
-                                Secure My Free 2-Week Trial
+                            <button type="submit" class="w-full px-6 py-4 text-xl font-bold rounded-xl btn-primary text-white mt-4 shadow-2xl flex items-center justify-center space-x-2">
+                                <span>Start Trial & Chat with Us on WhatsApp</span>
+                                <!-- WhatsApp Icon SVG for visual appeal -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-white">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.957.55 3.864 1.583 5.53l-.867 3.167 3.25-.851c1.558.85 3.328 1.304 5.034 1.304C17.523 22 22 17.523 22 12S17.523 2 12 2zm4.84 14.85l-.304.184c-.452.274-1.04.417-1.603.417-1.29 0-2.48-.372-3.475-1.096l-.605-.436-1.037.135 1.096 3.99c-.61-.318-1.18-.707-1.688-1.156l-.506-.47-.97.126-.41.054c-.218.029-.44.043-.664.043-1.696 0-3.08-1.385-3.08-3.08 0-1.697 1.384-3.08 3.08-3.08 1.697 0 3.08 1.383 3.08 3.08s-1.383 3.08-3.08 3.08c-.224 0-.446-.014-.664-.043l-.41-.054-.97-.126-.506.47c-.508.449-1.078.838-1.688 1.156l1.096-3.99-1.037-.135-.605.436c-.995.724-2.185 1.096-3.475 1.096-1.697 0-3.08-1.384-3.08-3.08s1.383-3.08 3.08-3.08c1.696 0 3.08 1.384 3.08 3.08 0 .224-.014.446-.043.664l-.054.41.126.97.47.506c.449.508.838 1.078 1.156 1.688l3.99-1.096.135 1.037.436.605c.724.995 1.096 2.185 1.096 3.475 0 .563-.143 1.151-.417 1.603l-.184.304z"/>
+                                </svg>
                             </button>
                         </div>
                     </form>
-                    <!-- --- Message element removed as form submits externally --- -->
+                    <p id="form-message" class="mt-4 text-green-400 font-semibold hidden"></p>
                 </div>
-                <p class="mt-6 text-sm text-gray-500">By submitting, you agree to a quick demo and setup call. No credit card required for the trial.</p>
+                <p class="mt-6 text-sm text-gray-500">Note: Your information will be sent via WhatsApp to finalize your free trial setup.</p>
             </div>
         </section>
     </main>
@@ -311,14 +311,56 @@
         </div>
     </footer>
 
-    <!-- JavaScript for package selection scroll - REMOVED SUBMISSION HANDLER -->
+    <!-- JavaScript for package selection scroll and WHATSAPP SUBMISSION -->
     <script>
-        // No submit listener, letting the form POST externally.
-        // Keeping a simplified scroll function just in case
-        function scrollToElement(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-        
+        // Target WhatsApp number (MUST include country code, e.g., 20 for Egypt)
+        const WHATSAPP_NUMBER = "201024546861";
+
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedPackage = document.getElementById('package-select').value;
+            const teamName = document.getElementById('teamName').value;
+            const contactName = document.getElementById('contactName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const messageEl = document.getElementById('form-message');
+
+            if (selectedPackage === "" || selectedPackage === "Unsure") {
+                messageEl.textContent = "Please select a preferred package or choose 'Unsure' to proceed to chat.";
+                messageEl.classList.remove('hidden', 'text-green-400');
+                messageEl.classList.add('text-red-400');
+                return;
+            }
+
+            // 1. Construct the pre-filled WhatsApp message
+            // Phrasing: Hi, I'm [ContactName] and I want to start my free trial for the [Package] package.
+            const packageDisplay = selectedPackage === "Unsure" ? "ATHLON service" : `${selectedPackage} package`;
+
+            const message = `Hi, I'm ${contactName} from the ${teamName} team. I'm ready to discuss starting my free 2-week trial for the ${packageDisplay}. My email is ${email}. Let's schedule a call!`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            
+            // 2. Open the WhatsApp link in a new tab
+            window.open(whatsappLink, '_blank');
+            
+            // 3. Display an on-page success message/instruction
+            messageEl.innerHTML = `Success! Your **WhatsApp chat is open in a new tab**. Please hit 'Send' to confirm your trial and start the process.<br><a href="${whatsappLink}" target="_blank" class="text-white bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg font-bold inline-block mt-3 shadow-md">Click to Re-open WhatsApp Chat</a>`;
+            messageEl.classList.remove('hidden', 'text-red-400');
+            messageEl.classList.add('text-green-400');
+
+            // For your hackathon lead capture, log the data here as a backup
+            console.log('--- WHATSAPP LEAD CAPTURE (Backup Log) ---');
+            console.log(`Package: ${selectedPackage}`);
+            console.log(`Contact: ${contactName}`);
+            console.log(`Team: ${teamName}`);
+            console.log(`Email: ${email}`);
+            console.log(`Phone: ${phone}`);
+            console.log('------------------------------------------');
+        });
+
         // This sets the selected package in the form's dropdown when the user clicks a pricing button
         document.querySelectorAll('[onclick*="document.getElementById(\'package-select\')"]').forEach(button => {
             button.addEventListener('click', () => {
